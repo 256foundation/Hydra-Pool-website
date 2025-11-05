@@ -5,7 +5,7 @@ Help us test Hydra Pool by pointing your miner to: `stratum+tcp://stratum.hydrap
 
 Use any vanity username you want, no need to add a BTC address. The test iteration of Hydra Pool is configured to payout to the 256 Foundation BTC address.
 
-Pool Statistics can be monitored at: [stats.hydrapool.org](https://stats.hydrapool.org)
+Pool Statistics can be monitored at: [test.hydrapool.org](https://test.hydrapool.org)
 
 A table of the tested hardware is presented <a href="/hardware-tests.html" target="blank" rel="noopener noreferrer">here</a>.
 
