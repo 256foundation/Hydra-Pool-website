@@ -1,11 +1,11 @@
 ## Open Mining Pool
 Hydra Pool is an [open-source](https://www.gnu.org/licenses/gpl-3.0.html) Bitcoin mining pool built to be one-click deployable and self-hosted. 
 
-Help us test Hydra Pool by pointing your miner to: `stratum+tcp://stratum.hydrapool.org:3333`
+Help us test Hydra Pool by pointing your miner to: `stratum+tcp://test.hydrapool.org:3333`
 
 Use any vanity username you want, no need to add a BTC address. The test iteration of Hydra Pool is configured to payout to the 256 Foundation BTC address.
 
-Pool Statistics can be monitored at: [stats.hydrapool.org](https://stats.hydrapool.org)
+Pool Statistics can be monitored at: [test.hydrapool.org](https://test.hydrapool.org)
 
 A table of the tested hardware is presented <a href="/hardware-tests.html" target="blank" rel="noopener noreferrer">here</a>.
 
