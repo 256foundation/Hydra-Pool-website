@@ -1,4 +1,4 @@
-## Open Mining Pool
+## Open Source Mining
 Hydra Pool is an [open-source](https://www.gnu.org/licenses/gpl-3.0.html) Bitcoin mining pool built to be "one-click" deployable and self-hosted. 
 
 Help us test Hydra Pool by pointing your miner to: `stratum+tcp://test.hydrapool.org:3333`
@@ -42,7 +42,7 @@ The initial release of Hydra Pool is being built in such a way that it supports 
 For help with Hydra Pool, please use [The 256 Foundation public forum](https://t.me/the256foundation) on Telegram. Follow the 256 Foundation [twitter](https://x.com/256foundation) account. Or join the [OSMU Discord](https://discord.gg/9bWxRpj4) and see the 256 Foundation channel. 
 
 # Step-by-Step Guide: Creating a Hydra Pool Server
-The following material explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files only. There are many variations to deploying a server; from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here but you should be able to find some helpful information and links which you could use in part to setup your own unique server.
+The following material explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files only. There are many variations to deploying a server; from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here but you should be able to find some helpful information and links which you could use in part to setup your own unique server. You can find more details in the [Hydra Pool README](https://github.com/256foundation/hydrapool) file on GitHub.
 
 ## Download Ubuntu:
 Navigate to: [this URL](https://releases.ubuntu.com/)
@@ -534,7 +534,7 @@ Now, from the "hydrapool" directory, start the pool service with this command:
 
 You should now be able to open your web browser and enter the IP address of your server appended with port 3000 to see the Grafana dashboard. For example:
 
-'http://192.168.69.420:3000`
+`http://192.168.69.420:3000`
 
 <p align="center">
 <img width="500" src="assets/grafana.png">
@@ -542,3 +542,6 @@ You should now be able to open your web browser and enter the IP address of your
 
 If you are opening your server up to be publicly accessible then you will need to configure your router to allow that and then update your DNS records for your domain name to point to your server.
 
+<br>
+
+<br>
