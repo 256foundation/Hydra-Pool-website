@@ -58,17 +58,23 @@ The following material only explains how to create your own Hydra Pool server us
 ## Download Ubuntu:
 Navigate to: [this URL](https://releases.ubuntu.com/)
 
-![ubuntu01.png]
+<p align="center">
+<img width="500" src="assets/ubuntu01.png">
+</p>
 
 In this example, we will be looking for the latest Standard Support LTS release, 24.04.3 LTS (Noble Numbat). 
 Scroll down on this page and click on the hyper link for the desired release directory, such as “24.04.3/”.
 
-![ubuntu02.png]
+<p align="center">
+<img width="500" src="assets/ubuntu02.png">
+</p>
 
 Click on the desired image file, “ubuntu-24.04.3-live-server-amd64.iso” in this example and save the file to a convenient directory on your computer like your “Downloads” folder. 
 If you want to verify your download, which you should, you will need to also get the required signature files.
 
-![ubuntu03.png]
+<p align="center">
+<img width="500" src="assets/ubuntu03.png">
+</p>
 
 When you click on the hyperlink for the “SHA256SUMS” file, your browser will probably display the information in plain text in a new tab. Select all text, open your note pad application, and paste the copied text in a new note file. Then save the new note file to the same directory you saved the Ubuntu Server image file, the “Downloads” directory in this example, be sure to name the file exactly as it is named on the website, for instance: “SHA256SUMS” not “SHA256SUMS.txt”.
 
@@ -76,7 +82,9 @@ When you click on the hyperlink for the “SHA256SUMS” file, your browser will
 Next, click on the “SHA256SUMS.gpg” file to download it and also save this file in your “Downloads” directory.
 Your Downloads directory should look like this:
 
-![ubuntu04.png]
+<p align="center">
+<img width="500" src="assets/ubuntu04.png">
+</p>
 
 ## Verify Download
 With those three files saved to your “Downloads” folder, you can now open your Terminal window and start the verification process.
@@ -92,7 +100,9 @@ Then use the gpg command to compare the sha256sum files and see if your computer
 
 If your computer did not have the Ubuntu public key installed already, then you will see a response in your Terminal window like this:
 
-![verify01.png]
+<p align="center">
+<img width="500" src="assets/verify01.png">
+</p>
 
 This is good because the response is telling us which public key was used to make the signature, so now we can request this specific key from the key server with the following command. Be sure to use the key fingerprint returned from your Terminal window and add the “0x” prefix since it needs to be in hexadecimal:
 
@@ -100,7 +110,9 @@ This is good because the response is telling us which public key was used to mak
 
 You should get a response like the one below that shows at the key was imported. You can ignore the warning at the bottom that says “no ultimately trusted keys found”; this warning appears if you haven’t created your own GPG key or haven’t set trust levels for imported keys, this warning appears because GPG has no anchor of trust. The warning is informational and does not prevent key import or basic functionality.
 
-![verify02.png]
+<p align="center">
+<img width="500" src="assets/verify02.png">
+</p>
 
 Now run this command again:
 
@@ -108,7 +120,9 @@ Now run this command again:
 
 Then you should get a response like the one below that shows “Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"”. Again, you can ignore the warning about the key not being certified for the same reasons mentioned above.
 
-![verify03.png]
+<p align="center">
+<img width="500" src="assets/verify03.png">
+</p>
 
 Next, we can compute the sha256 hash value on the image file and compare that with the hash value given in the “SHA256SUMS” file that we now know has a good signature from the Unbuntu public key. Run the sha256sum command from your “Downloads” directory, or which ever directory you saved the three files in, making sure to enter the name of your image file:
 
@@ -116,7 +130,9 @@ Next, we can compute the sha256 hash value on the image file and compare that wi
 
 You can open your SHA256SUMS file with your text editor and see the text inside, then compare the relavent entry to the response you received in the Terminal window.
 
-![verify04.png]
+<p align="center">
+<img width="500" src="assets/verify04.png">
+</p>
 
 With the download now verified, we can move on to flashing the image file onto a USB drive.
 
@@ -125,7 +141,9 @@ Your computer may have a flashing program already installed, in this example I�
 
 The flashing process is very simple and generally works the same no matter which program you are using. Basically, you just need to select the image file you want to flash and the drive you want to flash the image to. In this example, the flashing program is pointed to the “Downloads” folder where the Ubuntu Server image file is. The destination in the flashing program is pointed to an 8GB USB drive that has already been formatted and cleared of all files. 
 
-![flashing01.png]
+<p align="center">
+<img width="500" src="assets/flashing01.png">
+</p>
 
 After the flashing has completed, you can eject the USB drive and you are ready to flash your new server.
 
@@ -136,11 +154,15 @@ If your computer boots up and loads your normal operating system, then you were 
 
 You should see a screen like this once you get into the BIOS:
 
-![flashing02.png]
+<p align="center">
+<img width="500" src="assets/flashing02.png">
+</p>
 
 Select the USB device you want to boot from using the up/down arrows on the keyboard. Then on the next screen, select the option to “try or install Ubuntu Server”.
 
-![flashing03.png]
+<p align="center">
+<img width="500" src="assets/flashing03.png">
+</p>
 
 Then you will be prompted to set your language and keyboard layout. Do so using the up/down arrows and the enter key.
 
@@ -156,7 +178,9 @@ Next, the installer will ask you to select a drive for the installation, this wi
 
 Then you will be presented with a file system summery. Double check to make sure that everything looks good. For example, here is mine:
 
-![flashing04.png]
+<p align="center">
+<img width="500" src="assets/flashing04.png">
+</p>
 
 The installer will ask you to confirm you want to proceed. Select continue and hit enter. 
 
@@ -197,7 +221,9 @@ Now this is a good time to get the auxiliary hard drive mounted. The auxiliary h
 
 the response will show you the connected devices and their partitions. The one I’m interested in mounting is "/dev/sdb1". Take note of the device identifier you are mounting.
 
-![mount01.png]
+<p align="center">
+<img width="500" src="assets/mount01.png">
+</p>
 
 Next, create a mount point directory. You can name the folders whatever you want but it’s a good idea to use something that makes sense like "/mnt/auxdrive"
 
@@ -213,7 +239,9 @@ You are going to want this drive to automatically mount at system boot, to do th
 
 You will get a response that shows each connected device, look for the drive identifier you want like "/dev/sdb1", note the UUID to add to the "fstab" file or just highlight the UUID with the cursor and hit ctrl+shift+c to put it on your clipboard. 
 
-![mount02.png]
+<p align="center">
+<img width="500" src="assets/mount02.png">
+</p>
 
 Next, open the "fstab" file with nano to edit it:
 
@@ -221,7 +249,9 @@ Next, open the "fstab" file with nano to edit it:
 
 Use your down arrow to get to the bottom of all the existing text and on a new line make an entry that defines the UUID, the mount point, the file system type, the defaults setting, and then define the dump frequency with a 0 and another 0 for the file system check order. For example:
 
-![mount03.png]
+<p align="center">
+<img width="500" src="assets/mount03.png">
+</p>
 
 Then hit ctrl+o to write the "fstab" file changes, press enter to save it, then ctrl+x to exit and get back to the main Terminal session.
 
@@ -393,7 +423,9 @@ Then check the Docker status with:
 
 `sudo systemctl status docker`
 
-![docker01.png]
+<p align="center">
+<img width="500" src="assets/docker01.png">
+</p>
 
 Hit ctrl+c to exit that screen.
 
@@ -407,7 +439,9 @@ Now verify the installation was successful by running:
 
 Your terminal should respond with “hello world!”
 
-![docker02.pn]
+<p align="center">
+<img width="500" src="assets/docker02.png">
+</p>
 
 ## Install Hydra Pool
 Now we can install Hydra Pool from the GitHub repository by fetching the docker-compose.yml file and then fetching the config-example.toml file.
@@ -513,7 +547,9 @@ You should now be able to open your web browser and enter the IP address of your
 
 'http://192.168.69.420:3000`
 
-![grafana.png]
+<p align="center">
+<img width="500" src="assets/grafana.png">
+</p>
 
 If you are opening your server up to be publicly accessible then you will need to configure your router to allow that and then update your DNS records for your domain name to point to your server.
 
