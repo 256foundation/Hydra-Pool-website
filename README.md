@@ -480,13 +480,13 @@ Ensure that the url under the “bitcoinrpc” section is set as follows for mai
 
 `url = "http://host.docker.internal:8332"`
 
-Next you want to set the username and password, you will want these credentials to match what you used in your "bitcoin.conf" file for “rpcuser” and “rpcpassword”so that you can make the RPC connection. 
+Next you want to set the username and password, you will want these credentials to match what you used in your "bitcoin.conf" file for “rpcuser” and “rpcpassword” so that you can make the RPC connection. 
 
 Leave the logging information on the defaults.
 
 Leave the api information on the defaults.
 
-For the API authentication, you want to update the “auth_user” and “auth_token” to your own generated credentials if you are making this a publicly accessible pool server. Otherwise, if this is just for your own private use and is not publicly accessible then you can leave the defaults and skip down to the part about making the "prometheus.yml" file.
+For the API authentication, you want to update the “auth_user” and “auth_token” to your own generated credentials if you are making this a publicly accessible pool server. Otherwise, if this is just for your own private use and is not publicly accessible then you can leave the defaults and skip down to the part about starting your Hydra Pool server.
 
 Change the “auth_user” to the same username you are using above.
 
@@ -514,7 +514,7 @@ Now open that new file so you can edit it with this command:
 
 In your web browser, navigate to this URL: https://github.com/256foundation/hydrapool/blob/main/prometheus/prometheus.yml
 
- Use the “copy raw file” function to copy the file text to your clipboard. 
+Use the “copy raw file” function to copy the file text to your clipboard. 
 
 Back in your terminal window, hit ctrl+shift+v to paste the contents.
 
@@ -527,6 +527,19 @@ Exit the hydrapool directory with this command:
 Then restart Prometheus with this command: 
 
 `sudo docker compose restart prometheus`
+
+You also need to update the docker-compose.yml file so that the username and password match what you entered in the prometheus.yml file. From your hydrapool director, open the docker-compose.yml file to edit it with:
+
+`nano docker-compose.yml`
+
+Then scroll down to the "test" line and enter your username and your password where they are called for:
+
+```yaml
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "--http-user=USERNAME", "--http-password=PASSWORD", "--auth-no-challenge", "http://localhost:46884/health"]
+```
+
+Hit ctrl+o to write, enter to save, and ctrl+x to exit the text editor.
 
 Now, from the "hydrapool" directory, start the pool service with this command:
 
@@ -542,6 +555,9 @@ You should now be able to open your web browser and enter the IP address of your
 
 If you are opening your server up to be publicly accessible then you will need to configure your router to allow that and then update your DNS records for your domain name to point to your server.
 
+<br>
+
+<br>
 <br>
 
 <br>
