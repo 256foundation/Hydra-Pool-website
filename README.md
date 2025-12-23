@@ -12,48 +12,37 @@ A table of the tested hardware is presented <a href="/hardware-tests.html" targe
 <br>
 
 ## Motivation
-Mining pools are naturally and increasingly centralized, we set out to change that with this grant. In the event that authoritative governments attempt to coerce mining pools to do things that mining operators disagree with, there needs to be easily deployable options readily available to quickly divert hashrate from such choke points. For example, these threats could be in the form of forcing pools to KYC their users, or forcing pools to censor OFAC transactions, or orphaning blocks containing transactions they want censored based on any arbitrary factor. If anyone can spin up a mining pool on their Ember One mining system, with a self-hosted computer, or a VPS and this open-source project then mining operators are going to be able to pool their resources back together faster and the pressure will grow exponentially on the resources needed to uphold misaligned demands. In short, Hydra Pool is a project to make deploying a mining pool server with a Bitcoin node and Stratum v1/v2 server as easy as "one-click". 
+Mining pools are naturally and increasingly centralized, prohibatively complex for an average user to setup, and very few are open-source. We set out to change all that with by building Hydra Pool. In the event that authoritative governments attempt to coerce mining pools to do things that mining operators disagree with, there needs to be easily deployable options readily available to quickly divert hashrate from such choke points. For example, these threats could be in the form of forcing pools to KYC their users, or forcing pools to censor OFAC transactions, or orphaning blocks containing transactions they want censored based on any arbitrary factor. If anyone can spin up a mining pool on their Ember One mining system, with a self-hosted computer, or a VPS and this open-source project then miners are going to be able to pool their resources back together faster and the pressure will grow exponentially on the resources needed to enforce restrictions on mining. In short, Hydra Pool is a project to make deploying a mining pool server with a Bitcoin node and Stratum v1/v2 server as easy as "one-click". 
 
 <p align="center">
 <img width="500" src="assets/Hydra-Pool-Lander.jpg">
 </p>
 
-If this sounds like a grant you want to support, then send The 256 Foundaton a tax deductible donation [here](https://pay.zaprite.com/pl_ZRWeSGjRWG)! Or use The 256 Foundation [PayNym](https://paynym.rs/+appetizingadministration90)!
+If you appreciate what we have built with Hydra Pool, then send The 256 Foundaton a tax deductible donation [here](https://pay.zaprite.com/pl_ZRWeSGjRWG)! Or use The 256 Foundation [PayNym](https://paynym.rs/+appetizingadministration90)!
 
 <br>
 
-## Scope
-One Project Manager position and one developer position to fulfill the mission of The 256 Foundation, “Dismantle the proprietary mining empire to make Bitcoin and freedom tech accessible to anyone”. This grant proposal aims to secure funding for:
-
-* The grant officially launched April 5, 2025.
-* One project manager to oversee and ensure mission adherence, timeliness, and execution. 
-* One developer to build the Hydra Pool software.
-* Hydra Pool specifics: Fully open-source “one-click” deployable Bitcoin mining software packaged with a full node and Stratum v1/v2 server support.   
-* User-friendly dashboard.
-* Dockerized or at least multi-OS builds. 
-* Supporting documentation and specifications. 
-* This project is fully open-source GPLv3 licensed.
-* Excluded from this proposal are sales, distribution, marketing, and customer technical support.
-
-* <br>
-
-## Deliverables
-* Pool application for linux that talks to bitcoind and provides stratum work to users and stores received shares.
-* Scalable and robust database support to save received shares.
+## Features
+* Run a private solo pool or a public PPLNS pool for your community of miners.
+* Extensible so users can implement payment mechanisms to pay out miners based on the share accounting.
+* Payouts are made directly from coinbase - pool operator doesn't custody any funds. By default, Hydra Pool supports 100 unique users in the coinbase and this can be configured by the user with [these](https://github.com/256foundation/hydrapool?tab=readme-ov-file#configuring-blockmaxweight-on-bitcoin) instructions. No need to trust the pool operator.
 * Run share accounting on the stored shares.
-* Implement payment mechanisms to pay out miners based on the share accounting.
-* Provide two operation modes: Solo mining and PPLNS (or Tides) based payout mechanism, with payouts from coinbase only. (All other payout mechanism are out of scope of this project for now).
+* Let users download and validate the accounting of shares. We provide an API for the same. See [API Server](https://github.com/256foundation/hydrapool#api).
+* Scalable and robust database support to save received shares.
+* Prometheus and Grafana based dashboard for pool, user and worker hashrates and uptimes.
+* Pool application for linux that talks to bitcoind and provides stratum work to users and stores received shares.
+* Use any bitcoin node that supports bitcoin RPC.
+* Implemented in Rust, for ease of extending the pool with novel accounting and payout schemes.
+* Open source with AGPLv3. Feel free to extend and/or make changes.
 * Rolling upgrades: Tools and scripts to upgrade server with zero downtime.
-* Dashboard: Pool stats view only dashboard with support to filter miner payout addresses.
-* Documentation: Setup and other help pages, as required.
 
-The initial release of Hydra Pool is being built in such a way that it supports long-term goals like alternative payout models such as echash, communicating with other Hydra Pool instances, Local store of shares for Ember One, and a user-friendly interface that puts controls at the user's fingertips, and supports the ability for upstream pool proxying. 
+The initial release of Hydra Pool is being built in such a way that it supports long-term goals like alternative payout models such as echash, communicating with other Hydra Pool instances via [P2Poolv2](https://github.com/p2poolv2/p2poolv2), Local store of shares, and a user-friendly interface that puts controls at the user's fingertips, and supports the ability for upstream pool proxying.
 
 ## Community Support
-For help with Hydra Pool, please use [The 256 Foundation public forum](https://t.me/the256foundation) on Telegram.
+For help with Hydra Pool, please use [The 256 Foundation public forum](https://t.me/the256foundation) on Telegram. Follow the 256 Foundation [twitter](https://x.com/256foundation) account. Or join the [OSMU Discord](https://discord.gg/9bWxRpj4) and see the 256 Foundation channel. 
 
-# Creating a Hydra Pool Server Step-by-Step Guide
-The following material only explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files. There are many variations on deploying a server from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here but you should be able to find some helpful information and links which you could use in part to setup your own unique server.
+# Step-by-Step Guide: Creating a Hydra Pool Server
+The following material explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files only. There are many variations to deploying a server; from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here but you should be able to find some helpful information and links which you could use in part to setup your own unique server.
 
 ## Download Ubuntu:
 Navigate to: [this URL](https://releases.ubuntu.com/)
@@ -121,7 +110,7 @@ Now run this command again:
 Then you should get a response like the one below that shows “Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"”. Again, you can ignore the warning about the key not being certified for the same reasons mentioned above.
 
 <p align="center">
-<img width="500" src="assets/verify03.png">
+<img width="500" src="assets/verify3.png">
 </p>
 
 Next, we can compute the sha256 hash value on the image file and compare that with the hash value given in the “SHA256SUMS” file that we now know has a good signature from the Unbuntu public key. Run the sha256sum command from your “Downloads” directory, or which ever directory you saved the three files in, making sure to enter the name of your image file:
@@ -410,7 +399,7 @@ URIs: https://download.docker.com/linux/ubuntu
 Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
 Components: stable 
 Signed-By: /etc/apt/keyrings/docker.asc 
-EOF>>
+EOF
 ~~~
 
 `sudo apt update`
