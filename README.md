@@ -1,11 +1,11 @@
 ## Open Source Mining
 Hydra Pool is an [open-source](https://www.gnu.org/licenses/gpl-3.0.html) Bitcoin mining pool built to be "one-click" deployable and self-hosted. 
 
-Help us test Hydra Pool by pointing your miner to: `stratum+tcp://test.hydrapool.org:3333`
+Help us test Hydra Pool by pointing your miner to: `stratum+tcp://pool.256foundation.org:3333`
 
-Use any vanity username you want, no need to add a BTC address. The test iteration of Hydra Pool is configured to payout to the 256 Foundation BTC address.
+Use any vanity username or Nostr npub you want, no need to add a BTC address. The test iteration of Hydra Pool is configured to payout 100% to the 256 Foundation if a block is found.
 
-Pool Statistics can be monitored at: [test.hydrapool.org](https://test.hydrapool.org)
+Pool Statistics can be monitored at: [dash.256f.org](https://dash.256f.org) 
 
 A table of the tested hardware is presented <a href="/hardware-tests.html" target="blank" rel="noopener noreferrer">here</a>.
 
@@ -15,7 +15,7 @@ A table of the tested hardware is presented <a href="/hardware-tests.html" targe
 Mining pools are naturally and increasingly centralized, prohibitively complex for an average user to setup, and very few are open-source. We set out to change all that by building Hydra Pool. In a world where governments are increasingly agressive toward Bitcoin innovations, it is not a stretch of the imagination for authoritative governments to coerce mining pools to do things that miners disagree with, there needs to be easily deployable options readily available to quickly divert hashrate from choke points such as centralized pools. For example, these threats could be in the form of forcing pools to KYC their users, or forcing pools to censor OFAC transactions, or orphaning blocks containing transactions they want censored based on any arbitrary factor. If anyone can spin up a mining pool on their Ember One mining system, with a self-hosted computer, or a VPS and this open-source software project then miners are going to be able to pool their resources back together faster and discretely; thus shifting the balance of power back into the hands of the individuals, avoiding involuntary mining restrictions. In short, Hydra Pool is a project to make deploying a mining pool server with a Bitcoin node and Stratum server as easy as "one-click". 
 
 <p align="center">
-<img width="500" src="assets/Hydra-Pool-Lander.jpg">
+<img width="500" src="assets/hydra.png">
 </p>
 
 If you appreciate what we have built with Hydra Pool, then send The 256 Foundaton a tax deductible donation [here](https://pay.zaprite.com/pl_ZRWeSGjRWG)! Or use The 256 Foundation [PayNym](https://paynym.rs/+appetizingadministration90)!
