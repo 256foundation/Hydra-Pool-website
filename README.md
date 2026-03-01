@@ -12,7 +12,7 @@ A table of the tested hardware is presented <a href="/hardware-tests.html" targe
 <br>
 
 ## Motivation
-Mining pools are naturally and increasingly centralized, prohibitively complex for an average user to setup, and very few are open-source. We set out to change all that by building Hydra Pool. In a world where governments are increasingly agressive toward Bitcoin innovations, it is not a stretch of the imagination for authoritative governments to coerce mining pools to do things that miners disagree with, there needs to be easily deployable options readily available to quickly divert hashrate from choke points such as centralized pools. For example, these threats could be in the form of forcing pools to KYC their users, or forcing pools to censor OFAC transactions, or orphaning blocks containing transactions they want censored based on any arbitrary factor. If anyone can spin up a mining pool on their Ember One mining system, with a self-hosted computer, or a VPS and this open-source software project then miners are going to be able to pool their resources back together faster and discretely; thus shifting the balance of power back into the hands of the individuals, avoiding involuntary mining restrictions. In short, Hydra Pool is a project to make deploying a mining pool server with a Bitcoin node and Stratum server as easy as "one-click". 
+Mining pools are naturally and increasingly centralized, prohibitively complex for an average user to setup, and very few are open-source. We set out to change all that by building Hydra Pool. In a world where governments are increasingly agressive toward Bitcoin innovations, it is not a stretch of the imagination for authoritative governments to coerce mining pools to do things that miners disagree with, there needs to be easily deployable options readily available to quickly divert hashrate from chokepoints such as centralized pools. For example, these threats could be in the form of forcing pools to KYC their users, or forcing pools to censor OFAC transactions, or orphaning blocks containing transactions they want censored based on any arbitrary factor. If anyone can spin up a mining pool on their Ember One mining system, with a self-hosted computer, or a VPS and this open-source software project, then miners are going to be able to pool their resources back together faster and discretely; thus shifting the balance of power back into the hands of the individuals, avoiding involuntary mining restrictions. In short, Hydra Pool is a project to make deploying a mining pool server with a Bitcoin node and Stratum server as easy as "one-click". 
 
 <p align="center">
 <img width="500" src="assets/hydra.png">
@@ -29,7 +29,7 @@ If you appreciate what we have built with Hydra Pool, then send The 256 Foundato
 * Run share accounting on the stored shares.
 * Let users download and validate the accounting of shares. We provide an API for the same. See [API Server](https://github.com/256foundation/hydrapool#api).
 * Scalable and robust database support to save received shares.
-* Prometheus and Grafana based dashboard for pool, user and worker hashrates and uptimes.
+* Prometheus- and Grafana-based dashboard for pool, user and worker hashrates and uptimes.
 * Pool application for linux that talks to bitcoind and provides stratum work to users and stores received shares.
 * Use any bitcoin node that supports bitcoin RPC.
 * Implemented in Rust, for ease of extending the pool with novel accounting and payout schemes.
@@ -42,7 +42,7 @@ The initial release of Hydra Pool is being built in such a way that it supports 
 For help with Hydra Pool, please use [The 256 Foundation public forum](https://t.me/the256foundation) on Telegram. Follow the 256 Foundation [twitter](https://x.com/256foundation) account. Or join the [OSMU Discord](https://discord.gg/9bWxRpj4) and see the 256 Foundation channel. 
 
 # Step-by-Step Guide: Creating a Hydra Pool Server
-The following material explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files only. There are many variations to deploying a server; from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here but you should be able to find some helpful information and links which you could use in part to setup your own unique server. You can find more details in the [Hydra Pool README](https://github.com/256foundation/hydrapool) file on GitHub.
+The following material explains how to create your own Hydra Pool server using an old Dell Optiplex 9020 desktop computer flashed with Ubuntu Server 24.04.3 LTS, installing and running bitcoind from Snap, and using the Hydra Pool Docker files only. There are many variations to deploying a server; from types of hardware to Operating System, to which Bitcoin client to use, to compiling Hydra Pool from source. No other variations are explained here, but you should be able to find some helpful information and links which you could use in part to setup your own unique server. You can find more details in the [Hydra Pool README](https://github.com/256foundation/hydrapool) file on GitHub.
 
 ## Download Ubuntu:
 Navigate to: [this URL](https://releases.ubuntu.com/)
@@ -59,13 +59,13 @@ Scroll down on this page and click on the hyper link for the desired release dir
 </p>
 
 Click on the desired image file, “ubuntu-24.04.3-live-server-amd64.iso” in this example and save the file to a convenient directory on your computer like your “Downloads” folder. 
-If you want to verify your download, which you should, you will need to also get the required signature files.
+If you want to verify your download—which you should—you will need to also get the required signature files.
 
 <p align="center">
 <img width="500" src="assets/ubuntu03.png">
 </p>
 
-When you click on the hyperlink for the “SHA256SUMS” file, your browser will probably display the information in plain text in a new tab. Select all text, open your note pad application, and paste the copied text in a new note file. Then save the new note file to the same directory you saved the Ubuntu Server image file, the “Downloads” directory in this example, be sure to name the file exactly as it is named on the website, for instance: “SHA256SUMS” not “SHA256SUMS.txt”.
+When you click on the hyperlink for the “SHA256SUMS” file, your browser will probably display the information in plain text in a new tab. Select all text, open your notepad application, and paste the copied text in a new note file. Then save the new note file to the same directory you saved the Ubuntu Server image file, the “Downloads” directory in this example, be sure to name the file exactly as it is named on the website, for instance: “SHA256SUMS” not “SHA256SUMS.txt”.
 
 
 Next, click on the “SHA256SUMS.gpg” file to download it and also save this file in your “Downloads” directory.
@@ -97,7 +97,7 @@ This is good because the response is telling us which public key was used to mak
 
 `curl -fsSL "http://keyserver.ubuntu.com/pks/lookup?op=get&options=mr&search=0x843938DF228D22F7B3742BC0D94AA3F0EFE21092" | gpg --import`
 
-You should get a response like the one below that shows at the key was imported. You can ignore the warning at the bottom that says “no ultimately trusted keys found”; this warning appears if you haven’t created your own GPG key or haven’t set trust levels for imported keys, this warning appears because GPG has no anchor of trust. The warning is informational and does not prevent key import or basic functionality.
+You should get a response like the one below that shows that the key was imported. You can ignore the warning at the bottom that says “no ultimately trusted keys found”; this warning appears if you haven’t created your own GPG key or haven’t set trust levels for imported keys, this warning appears because GPG has no anchor of trust. The warning is informational and does not prevent key import or basic functionality.
 
 <p align="center">
 <img width="500" src="assets/verify02.png">
@@ -113,7 +113,7 @@ Then you should get a response like the one below that shows “Good signature f
 <img width="500" src="assets/verify3.png">
 </p>
 
-Next, we can compute the sha256 hash value on the image file and compare that with the hash value given in the “SHA256SUMS” file that we now know has a good signature from the Unbuntu public key. Run the sha256sum command from your “Downloads” directory, or which ever directory you saved the three files in, making sure to enter the name of your image file:
+Next, we can compute the sha256 hash value on the image file and compare that with the hash value given in the “SHA256SUMS” file that we now know has a good signature from the Unbuntu public key. Run the sha256sum command from your “Downloads” directory, or whichever directory you saved the three files in, making sure to enter the name of your image file:
 
 `sha256sum ubuntu-24.04.3-live-server-amd64.iso`
 
@@ -137,7 +137,7 @@ The flashing process is very simple and generally works the same no matter which
 After the flashing has completed, you can eject the USB drive and you are ready to flash your new server.
 
 Insert the USB drive into the computer that will be your new Hydra Pool server. Make sure you have saved and removed any files you want to keep since everything currently on this computer will get erased in the flash process. 
-With the USB drive inserted, turn the computer on or restart it if it was already running. You will need to enter the BIOS which can usually be achieved by holding down the “shift” key or “F8” key or in this example with a 2014 Dell Optiplex 9020, it was the “F12” key.
+With the USB drive inserted, turn the computer on or restart it if it was already running. You will need to enter the BIOS which can usually be achieved by holding down <kbd>shift</kbd> or <kbd>F8</kbd>, or in this example—with a 2014 Dell Optiplex 9020—it was <kbd>F12</kbd>.
 
 If your computer boots up and loads your normal operating system, then you were not holding down the right key at the right time during the boot process. In this case, continue restarting the computer and try different keys until you find the right one. Try doing some online research for your specific hardware if the problem persists. 
 
@@ -159,38 +159,38 @@ Then you will have the option to select the Ubuntu Server or Ubuntu Server (Mini
 
 Then you will set the network configuration which should be automatically detected, just use the default unless you have a reason to change it.
 
-Then it will ask you to enter proxy configuration details if you have them. If you don’t know what those are, just leave it blank and hit enter to continue.
+Then it will ask you to enter proxy configuration details if you have them. If you don’t know what those are, just leave it blank and hit <kbd>enter</kbd> to continue.
 
 Then the installer will check the Ubuntu Archive mirror for some packages. Let it run through this process undisturbed until you see “reading packages…”
 
-Next, the installer will ask you to select a drive for the installation, this will be the drive that gets erased and formatted and have the operating system installed. You will have the option to encrypt the drive and enter the passphrase that will be needed each time the computer boots up, if you choose to do this, there are a few extra steps required that will not be covered in this guide so that you can remotely decrypt the hard drive on reboot; do some research on “dropbear-initramfs” if you want to go that route. Once you have this page configured how you want, use the tab key to get to the bottom of the screen to select “Done” then hit enter.
+Next, the installer will ask you to select a drive for the installation, this will be the drive that gets erased and formatted and have the operating system installed. You will have the option to encrypt the drive and enter the passphrase that will be needed each time the computer boots up, if you choose to do this, there are a few extra steps required that will not be covered in this guide so that you can remotely decrypt the hard drive on reboot; do some research on “dropbear-initramfs” if you want to go that route. Once you have this page configured how you want, use the tab key to get to the bottom of the screen to select “Done” then hit <kbd>enter</kbd>.
 
-Then you will be presented with a file system summery. Double check to make sure that everything looks good. For example, here is mine:
+Then you will be presented with a file system summary. Double check to make sure that everything looks good. For example, here is mine:
 
 <p align="center">
 <img width="500" src="assets/flashing04.png">
 </p>
 
-The installer will ask you to confirm you want to proceed. Select continue and hit enter. 
+The installer will ask you to confirm you want to proceed. Select continue and hit <kbd>enter</kbd>. 
 
-Then the installer will ask you to setup your user profile, enter a name and username, they can be the same. Enter a server name and set your user password. Use the tab key to select “Done” when finished and hit enter.
+Then the installer will ask you to setup your user profile, enter a name and username; they can be the same. Enter a server name and set your user password. Use the tab key to select “Done” when finished and hit <kbd>enter</kbd>.
 
-You will then be asked if you want to upgrade to Ubuntu Pro, if you are unsure, just leave it on the default selection and skip for now.
+You will then be asked if you want to upgrade to Ubuntu Pro. If you are unsure, just leave it on the default selection and skip for now.
 
-Next, I recommend enabling OpenSSH by using the space key to select “Install OpenSSH server”. If you have an SSH key, you have the option to import that now. If you don’t or are unsure, just use the tab key to select “Done” at the bottom of the screen and hit enter to continue. 
+Next, I recommend enabling OpenSSH by using the space key to select “Install OpenSSH server”. If you have an SSH key, you have the option to import that now. If you don’t or are unsure, just use the tab key to select “Done” at the bottom of the screen and hit <kbd>enter</kbd> to continue. 
 
 The installer will then present you with a list of popular snaps, feel free to select any that you want. For this example, I skipped all of them. 
 
 Then the system will update based on the way you made your configurations. This process takes a couple minutes so let it run and then you can select the “view full log” option and look for the response: “finish: cmd-in-target: SUCCESS: curtain cmd in-target” to confirm that the process is finished. Select “close” at the bottom of the screen to return to the prior screen.
 
-Now you can select “Reboot now” at the bottom of the screen, remove the USB drive that you ran the installer from. If you don’t remove the USB drive fast enough, you will get a failed to boot warning and a request for you to remove the USB drive and then hit enter to reattempt booting up. Then your new server should boot up. If you don’t already know the local IP address of your new Hydra Pool server, then hit enter and you should be prompted to log-in using the username and password you set. Once you successfully log-in, you will see a few basic stats displayed like memory usage, temperature, and local IP address. Note this local IP address. Now you can disconnect the keyboard and monitor as you will connect remotely for the remainder of the setup.
+Now you can select “Reboot now” at the bottom of the screen, remove the USB drive that you ran the installer from. If you don’t remove the USB drive fast enough, you will get a 'failed to boot' warning and a request for you to remove the USB drive and then hit <kbd>enter</kbd> to reattempt booting up. Then your new server should boot up. If you don’t already know the local IP address of your new Hydra Pool server, then hit <kbd>enter</kbd> and you should be prompted to log-in using the username and password you set. Once you successfully log-in, you will see a few basic stats displayed like memory usage, temperature, and local IP address. Note this local IP address. Now you can disconnect the keyboard and monitor as you will connect remotely for the remainder of the setup.
 
 ## SSH
 You will need the local IP address of your new server so that you can remotely communicate with it. From your laptop connected to the same local network, open your Terminal window and use the SSH command to remotely connect to your Hydra Pool server. Your command should look something like this, making sure you use your Hydra Pool server’s username and local IP address noted above. 
 
 `ssh username@192.168.69.123`
 
-You will likely get a response that the authenticity of the host you are trying to connect to cannot be established. You can type in "yes" to proceed and hit enter.
+You will likely get a response that the authenticity of the host you are trying to connect to cannot be established. You can type in "yes" to proceed and hit <kbd>enter</kbd>.
 
 Then you should be prompted for the password, enter that, and then you should be greeted with the same basic stats you saw on the monitor when it was connected to the server.
 
@@ -198,23 +198,23 @@ This is a good point to run some updates to make sure your new server is caught 
 
 `sudo apt update`
 
-Since you are using sudo, you will likely be asked for your password again. Enter that and hit enter. Then you will be presented with a response letting you know how many packages can be updated. To install all the updates, run the following command:
+Since you are using sudo, you will likely be asked for your password again. Enter that and hit <kbd>enter</kbd>. Then you will be presented with a response letting you know how many packages can be updated. To install all the updates, run the following command:
 
 `sudo apt upgrade -y`
 
 Let the process run until complete. 
 
-Now this is a good time to get the auxiliary hard drive mounted. The auxiliary hard drive in this example has already been formatted to use the ex4 file system prior to installation. If you need to format your hard drive then do an internet search for “how to format hard drive ubuntu”. To mount it, first you need to identify the drive and the partition, run the following command:
+Now this is a good time to get the auxiliary hard drive mounted. The auxiliary hard drive in this example has already been formatted to use the ex4 file system prior to installation. If you need to format your hard drive, then do an internet search for “how to format hard drive ubuntu”. To mount it, first you need to identify the drive and the partition, run the following command:
 
 `sudo fdisk -l`
 
-the response will show you the connected devices and their partitions. The one I’m interested in mounting is "/dev/sdb1". Take note of the device identifier you are mounting.
+The response will show you the connected devices and their partitions. The one I’m interested in mounting is "/dev/sdb1". Take note of the device identifier you are mounting.
 
 <p align="center">
 <img width="500" src="assets/mount01.png">
 </p>
 
-Next, create a mount point directory. You can name the folders whatever you want but it’s a good idea to use something that makes sense like "/mnt/auxdrive"
+Next, create a mount point directory. You can name the folders whatever you want, but it’s a good idea to use something that makes sense like "/mnt/auxdrive"
 
 `sudo mkdir /mnt/auxdrive`
 
@@ -226,7 +226,7 @@ You are going to want this drive to automatically mount at system boot, to do th
 
 `sudo blkid`
 
-You will get a response that shows each connected device, look for the drive identifier you want like "/dev/sdb1", note the UUID to add to the "fstab" file or just highlight the UUID with the cursor and hit ctrl+shift+c to put it on your clipboard. 
+You will get a response that shows each connected device, look for the drive identifier you want like "/dev/sdb1", note the UUID to add to the "fstab" file or just highlight the UUID with the cursor and hit <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>c</kbd> to put it on your clipboard. 
 
 <p align="center">
 <img width="500" src="assets/mount02.png">
@@ -242,7 +242,7 @@ Use your down arrow to get to the bottom of all the existing text and on a new l
 <img width="500" src="assets/mount03.png">
 </p>
 
-Then hit ctrl+o to write the "fstab" file changes, press enter to save it, then ctrl+x to exit and get back to the main Terminal session.
+Then hit <kbd>ctrl</kbd>+<kbd>o</kbd> to write the "fstab" file changes, press <kbd>enter</kbd> to save it, then <kbd>ctrl</kbd>+<kbd>x</kbd> to exit and get back to the main Terminal session.
 
 To check that everything has worked you can run the following command to see a list of mounted drives, then restart your system and run the command again to check if your drive automatically mounted at system reboot.
 
@@ -300,7 +300,7 @@ rpcallowip=172.16.0.0/12
 rpcbind=0.0.0.0
 ~~~
 
-Then hit ctrl+o to write the file changes, press enter to save it, then ctrl+x to exit and get back to the main Terminal session.
+Then hit <kbd>ctrl</kbd>+<kbd>o</kbd> to write the file changes, press <kbd>enter</kbd> to save it, then <kbd>ctrl</kbd>+<kbd>x</kbd> to exit and get back to the main Terminal session.
  
 Before starting the bitcoin daemon, ensure your user has access to the directory you manually created using this command, be sure to use your actual username in place of “username”:
 
@@ -320,7 +320,7 @@ You should get a response that Bitcoin Core is starting. Now you can monitor the
 
 This will take a while, so leave it to run. However, if you want to close your Terminal window, the bitcoind process will get stopped. In order to prevent this and have bitcoind continue running when you kill your remote session and to have it start on system boot, follow these steps:
 
-If you’re still watching the IBD progress, then hit ctrl+c to exit. Then run this command to stop bitcoind:
+If you’re still watching the IBD progress, then hit <kbd>ctrl</kbd>+<kbd>c</kbd> to exit. Then run this command to stop bitcoind:
 
 `/snap/bin/bitcoin-core.cli stop` 
 
@@ -347,7 +347,7 @@ RestartSec=30
 WantedBy=multi-user.target 
 ~~~
 
-Then hit ctrl+o to write the file changes, press enter to save it, then ctrl+x to exit and get back to the main Terminal session.
+Then hit <kbd>ctrl</kbd>+<kbd>o</kbd> to write the file changes, press <kbd>enter</kbd> to save it, then <kbd>ctrl</kbd>+<kbd>x</kbd> to exit and get back to the main Terminal session.
 
 Set the ownership of the file you just created with this command, ensure you replace “username” with your actual username:
 
@@ -365,7 +365,7 @@ Now you can check the status of your new service with this command:
 
 `sudo systemctl status bitcoind.service` 
 
-Hit ctrl+c to exit that if everything looks good.
+Hit <kbd>ctrl</kbd>+<kbd>c</kbd> to exit that if everything looks good.
 
 Then you can always monitor what "bitcoind" is doing in real-time with this command again:
 
@@ -416,7 +416,7 @@ Then check the Docker status with:
 <img width="500" src="assets/docker01.png">
 </p>
 
-Hit ctrl+c to exit that screen.
+Hit <kbd>ctrl</kbd>+<kbd>c</kbd> to exit that screen.
 
 Or in the event it was not automatically started, you should be able to manually start it with:
 
@@ -500,9 +500,9 @@ Then run the following command being sure to insert your username where it says 
 
 `sudo docker compose run --rm hydrapool-cli gen-auth username password`
 
-A script will run and then respond back with your auth_token. Select the full token, hit ctrl+shift+c to copy it to your clipboard. Then in your other terminal window where you have the "config.toml" file open, delete the existing default auth_token and hit ctrl+shift+v to paste the one on your clipboard. 
+A script will run and then respond back with your auth_token. Select the full token, hit <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>c</kbd> to copy it to your clipboard. Then in your other terminal window where you have the "config.toml" file open, delete the existing default auth_token and hit <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>v</kbd> to paste the one on your clipboard. 
 
-Now hit ctrl+o to write the changes to the file, then enter to keep the name, then ctrl+x to exit back to the terminal.
+Now hit <kbd>ctrl</kbd>+<kbd>o</kbd> to write the changes to the file, then <kbd>enter</kbd> to keep the name, then <kbd>ctrl</kbd>+<kbd>x</kbd> to exit back to the terminal.
 
 You need to update the Prometheus credentials to match so your database works properly. From your hydrapool directory, create a new file called “prometheus.yml” with this command:
 
@@ -516,7 +516,7 @@ In your web browser, navigate to this URL: https://github.com/256foundation/hydr
 
 Use the “copy raw file” function to copy the file text to your clipboard. 
 
-Back in your terminal window, hit ctrl+shift+v to paste the contents.
+Back in your terminal window, hit <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>v</kbd> to paste the contents.
 
 Navigate down to the bottom of the file and update the username field to your username, then update the password field to the password you supplied to the gen_auth tool. This should be the same password you have used for the bitcoin RPC settings.
 
@@ -539,7 +539,7 @@ Then scroll down to the "test" line and enter your username and your password wh
       test: ["CMD", "wget", "--spider", "-q", "--http-user=USERNAME", "--http-password=PASSWORD", "--auth-no-challenge", "http://localhost:46884/health"]
 ```
 
-Hit ctrl+o to write, enter to save, and ctrl+x to exit the text editor.
+Hit <kbd>ctrl</kbd>+<kbd>o</kbd> to write, <kbd>enter</kbd> to save, and <kbd>ctrl</kbd>+<kbd>x</kbd> to exit the text editor.
 
 Now, from the "hydrapool" directory, start the pool service with this command:
 
