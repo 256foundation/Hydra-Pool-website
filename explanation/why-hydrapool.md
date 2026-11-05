@@ -35,10 +35,10 @@ from the license alone, know that a given IP is that code.
 
 The [256 Foundation](https://256foundation.org) lists
 Hydrapool as one of its four core projects, next to Ember
-One, Libre Board, and Mujina. The pool is the layer that
-turns work into a block and a payout. The other three are
-hardware and firmware. They are adjacent. A claim about
-firmware is not a claim about share accounting.
+One, Libre Board, and Mujina. This site does not describe
+the current state of those other projects. Firmware and
+hardware are adjacent layers. A claim about them is not
+a claim about share accounting.
 
 ## What this project is not claiming
 

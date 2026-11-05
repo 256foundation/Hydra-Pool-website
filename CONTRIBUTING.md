@@ -2,8 +2,8 @@
 
 This repository is the source of
 [hydrapool.org](https://hydrapool.org). Pull requests
-are welcome. Most changes are small: a wording fix, a
-corrected host, a hardware-catalog row. If the change
+are welcome. Most changes are small: a wording fix or a
+corrected host. If the change
 is self-contained and the fact is already public, open
 the PR.
 
@@ -29,17 +29,15 @@ Run `just checks` before you open the PR. It builds
 the site and fails on dead internal links. The
 [README](README.md) covers setup.
 
-## The hardware catalog
+## What not to restore
 
-The [catalog](reference/hardware-catalog.md) was
-carried from the previous website. It did not record
-test dates, and its hash-power column is the old
-table's figures, not a Hydrapool measurement. If you
-tested a machine, add a row only with what you can
-point at: the firmware version, the date, and the
-instance whose payout rule you were on. Do not mark
-the Foundation's donation instance as a paid-pool
-test.
+The previous hydrapool.org pages are legacy. Do not
+bring the old hardware table back as a compatibility
+list, and do not treat the live Ember One or Libre
+Board sites as sources for this one. Facts belong to
+the Hydrapool repository and the Foundation pages
+named in [AGENTS.md](AGENTS.md). The visual reference
+is the deployed Mujina site.
 
 ## Commits
 

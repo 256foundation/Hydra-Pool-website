@@ -79,9 +79,9 @@ Follow the FAQ.
 
 `test.hydrapool.org` is named in the software README
 as an instance on mainnet. The README does not say who
-is paid. The old hardware page asked miners to connect
-there. Do not use that page as a payout promise. See
-[Public instances](/reference/public-instances).
+is paid. Do not point a miner there on the strength of
+that sentence. See [Public
+instances](/reference/public-instances).
 
 ## When something fails
 

@@ -66,14 +66,21 @@ draft branch does not deploy.
 
 ## Design reference
 
-The layout follows
-[mujina.org](https://mujina.org) at
-`256foundation/mujina-website` commit
-`74dd83e3178d91e2abd746c0c1724c3cffaab8ac` on `main`
-(26 September 2026). That commit is the VitePress site.
-The repository has no other branch. The Ember One
-draft at
-`256foundation/Ember-One-website` pull request 2
-(`cursor/vitepress-emberone-site-7761`) was used for
-the same Pages go-live caution, not as the visual
-source.
+The visual reference is the deployed Mujina site,
+[mujina.org](https://mujina.org). Its source is
+`256foundation/mujina-website` `main` at
+`74dd83e3178d91e2abd746c0c1724c3cffaab8ac`
+(26 September 2026). That is the site this draft
+follows: VitePress, Diataxis, the text face, the
+PCB-grid hero, and the Foundation footer.
+
+The live Hydrapool, Ember One, and Libre Board sites
+are legacy. They are not the visual target, and they
+are not sources for current project status.
+
+Ember One's replacement draft is
+[Ember-One-website pull request 2](https://github.com/256foundation/Ember-One-website/pull/2),
+branch `cursor/vitepress-emberone-site-7761`. It was
+used for the same Pages go-live caution as this
+draft. It is not a substitute for mujina.org, and the
+live emberone.org site was not used.

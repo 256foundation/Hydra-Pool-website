@@ -65,12 +65,10 @@ ledgers](/explanation/two-ledgers) keeps the distinction.
   says what the real checks are.
 - A Stratum V2 listening port. The current docs do not
   describe one.
-- Inter-instance pooling. The previous website listed
-  talking to other Hydrapool instances, other payout
-  schemes, and encrypted transport as longer-term
-  goals. The v2.6.0 README does not describe them as
-  current behavior. This page does not assign them a
-  date.
+- Inter-instance pooling, further payout schemes, and
+  encrypted transport. The v2.6.0 README does not
+  describe them as current behavior. This page does
+  not assign them a date.
 
 ## The public instance is a test, not a network
 

@@ -32,11 +32,28 @@ is the reasoning, with no steps. `index.md` and
 `community.md` sit outside the modes. Link across modes.
 Do not mix them.
 
-## What the pages may claim
+## References
 
-Checked against Hydrapool `main` `f7674e4` (v2.6.0,
-12 June 2026) and the public pages named in the docs.
-Update the "current as of" line when you re-check.
+Design follows the deployed Mujina site,
+[mujina.org](https://mujina.org), source
+`mujina-website` `main` at `74dd83e`. Do not hunt a
+second Mujina branch. Do not take layout from the
+legacy Hydrapool, Ember One, or Libre Board sites.
+
+Ember One's replacement draft
+(`Ember-One-website` pull request 2) is a sibling for
+how a project site ships. It is not the visual source,
+and it is not edited from this repository.
+
+Facts come from the Hydrapool repository (v2.6.0,
+`main` `f7674e4`, 12 June 2026), the Foundation FAQ
+and projects page, Hashdash, the Hydrapool forum, and
+P2Pool V2's own site. The previous hydrapool.org
+pages are legacy. Do not treat them as current
+status. Update the "current as of" line when you
+re-check.
+
+## What the pages may claim
 
 - Hydrapool is unfinished, Foundation-supported,
   operator-run pool software. It is open, so people can

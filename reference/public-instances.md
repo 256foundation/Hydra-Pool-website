@@ -28,8 +28,7 @@ pool](/tutorial/name-the-pool).
 This is the host named by the [Foundation
 FAQ](https://256foundation.org/faq), the [projects
 page](https://256foundation.org/projects), Hashdash, the
-[forum about post](https://forum.256foundation.org/t/about-the-hydrapool-category/10),
-and the previous hydrapool.org homepage.
+[forum about post](https://forum.256foundation.org/t/about-the-hydrapool-category/10).
 
 The FAQ calls it a hashrate donation: your miner adds
 work, and a block reward goes to the Foundation. The
@@ -60,11 +59,9 @@ On 5 November 2026:
 - HTTPS on the same name redirected to `/login` and
   served a Grafana page.
 
-The previous hardware-test page told people to mine at
-`stratum+tcp://test.hydrapool.org:3333` for a few
-minutes. This site does not repeat that request. The
-README sentence is not a payout policy, so this draft
-will not invent one.
+The README sentence is not a payout policy. This site
+does not send miners there, and it does not invent who
+is paid.
 
 If you operate that host, the payout rule belongs in
 the forum thread where miners will see it.

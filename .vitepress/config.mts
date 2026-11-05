@@ -70,8 +70,7 @@ export default defineConfig({
           { text: 'Run with Docker', link: '/howto/run-with-docker' },
           { text: 'Point a Miner', link: '/howto/point-a-miner' },
           { text: 'Export Share Records', link: '/howto/export-shares' },
-          { text: 'Build from Source', link: '/howto/build-from-source' },
-          { text: 'Example Server Pictures', link: '/howto/example-server' }
+          { text: 'Build from Source', link: '/howto/build-from-source' }
         ]
       },
       {
@@ -80,8 +79,7 @@ export default defineConfig({
           { text: 'Public Instances', link: '/reference/public-instances' },
           { text: 'Config File', link: '/reference/config' },
           { text: 'Share API', link: '/reference/share-api' },
-          { text: 'Hardware', link: '/reference/hardware' },
-          { text: 'Hardware Catalog', link: '/reference/hardware-catalog' }
+          { text: 'Hardware', link: '/reference/hardware' }
         ]
       },
       {
