@@ -1,9 +1,8 @@
 # Where Hydrapool Is Today
 
-Hydrapool is unfinished pool software. You can run an
-operator's ledger with it now. You cannot yet point it at
-a peer-validated sharechain and call that the same
-product.
+Hydrapool is operator-run pool software you deploy
+yourself. This page says what the release does, and what
+it does not.
 
 ::: info Current as of November 2026
 Checked against Hydrapool `main` at `f7674e4` (release
@@ -50,22 +49,15 @@ shared engineering inside an operator-run binary. It is
 not a second deployed program. [Two
 ledgers](/explanation/two-ledgers) keeps the distinction.
 
-## What is not this product today
+## What does not exist yet
 
-[Design goals](/explanation/design-goals) is the list of
-work that is not built. No dates. The current release
-does not include:
+[Design goals](/explanation/design-goals) is the roadmap.
+The release does not include:
 
-- Payout plugins. PPLNS in v2.6.0 is built in, not a
-  plugin you swap out.
-- Lightning, Ark, ecash, or a custom split as a payout
-  method. Lightning and Ark are not Hydrapool features
-  today. On the design-goals page they are only examples
-  of plugins a developer could write.
+- Payout plugins. PPLNS is built in.
+- Lightning, Ark, ecash, or a custom split.
 - A Start9 package or an Umbrel package.
-- A Stratum V2 endpoint. [Issue
-  41](https://github.com/256foundation/hydrapool/issues/41)
-  is open. The v2.6.0 release does not document one.
+- A Stratum V2 endpoint.
 
 Also not this product:
 
@@ -91,8 +83,7 @@ instance. Treat it as a way to see a running server and
 to give hashrate to the Foundation. Do not treat it as
 the production payout pool for your machines.
 
-The project does not publish adoption numbers on this
-site, and this draft does not invent them.
+This site states no hashrate and no user counts.
 
 ## Follow the work
 

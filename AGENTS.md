@@ -55,8 +55,11 @@ re-check.
 
 ## What the pages may claim
 
-- Hydrapool is unfinished, Foundation-supported,
-  operator-run pool software. It is open, so people can
+- Hydrapool is Foundation-supported, operator-run pool
+  software for an operator of any size. The home page
+  states what it does. Gaps live on the status page and
+  on design goals. Do not put "unfinished" in the hero
+  or repeat it on every page. It is open, so people can
   inspect it and host it. Open source does not prove
   which binary a remote host runs.
 - The line to keep intact, where the two designs are
@@ -79,15 +82,17 @@ re-check.
   different controls. Stratum V2 is a design goal, not
   a current endpoint. DATUM is not a Hydrapool feature.
 - Lightning and Ark are not shipped Hydrapool products.
-  They may be named only as examples of payout plugins
-  that are not built, or as P2Pool V2's unfinished
-  market. Say both limits when the design-goals page
-  mentions them.
-- Design goals (`explanation/design-goals.md`) are not
-  features and have no dates. Payout plugins follow
-  issue 43 and open pull request 42. Start9 packaging
-  is open pull request 33. Do not invent an Umbrel
-  pull request. No em dashes in site copy.
+  Name them as examples on the design-goals page, or as
+  P2Pool V2's market. The status page is where they are
+  listed as absent from the release.
+- Design goals (`explanation/design-goals.md`) sell the
+  direction and carry one line that the work is in
+  progress. No dates, no "checked on" line. Payout
+  plugins follow issue 43 and pull request 42. Start9
+  packaging is pull request 33. Umbrel is issue 38.
+  Do not invent an Umbrel pull request. Stratum V2 is
+  issue 41 and is not a current endpoint. No em dashes
+  in site copy.
 - P2Pool V2 is independently maintained by Jungly
   (Kulpreet Singh), with a public support commitment
   from Localhost Research. It is not a 256 Foundation

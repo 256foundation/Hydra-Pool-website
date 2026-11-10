@@ -5,10 +5,9 @@ hero:
   name: Hydrapool
   text: A PPLNS pool you can run and check
   tagline: >-
-    Open source, for a home miner or a small operator.
+    Open source, for an operator of any size.
     Payouts come straight from the block reward.
     Published share records let anyone recompute the split.
-    The software is unfinished.
   image:
     src: /hydra.webp
     alt: >-
@@ -28,22 +27,20 @@ hero:
 features:
   - title: Run it yourself
     details: >-
-      Open-source PPLNS for a home miner or a small operator.
-      You host the pool, and you can read the code.
+      Open-source PPLNS. You host the pool, from one miner
+      to a large operation, and you can read the code.
     link: /howto/run-with-docker
     linkText: Run with Docker
   - title: Paid from the block
     details: >-
       Miners are paid straight from the block reward, in the
       coinbase. The operator need not hold those coins afterward.
-      Custody is not the same as a fair split.
     link: /explanation/what-a-check-can-show
     linkText: What a check can show
   - title: Recompute the split
     details: >-
       Share records are published. Anyone can recompute the
-      split from those records. The file is not, by itself,
-      proof that every eligible share was included.
+      split from those records.
     link: /explanation/what-a-check-can-show
     linkText: What the export shows
   - title: A donation instance
@@ -57,22 +54,20 @@ features:
 
 ## The pool you can run
 
-Hydrapool is the most practical checkable shared-payout (PPLNS)
-pool a home miner or small operator can run today. It is open
-source. You run it yourself. Miners are paid straight from the
-block reward, in the coinbase. The pool publishes share records
-so anyone can recompute the split. The software is unfinished.
+Hydrapool is open-source PPLNS pool software. An operator of
+any size can run it, from a home miner to a large operation.
+You host it yourself. Miners are paid straight from the block
+reward, in the coinbase. The pool publishes share records so
+anyone can recompute the split.
 
 It is part of the [256 Foundation](https://256foundation.org)'s
 open mining stack, with [Mujina](https://mujina.org) and Ember One.
 
 Hydrapool aims to let you inspect and run the bookkeeper. P2Pool V2 aims to remove the single authoritative bookkeeper.
 
-It is also becoming a platform for how miners get paid. The
-design work is payout plugins, so the accounting and the payout
-method can be swapped. That is not built yet.
-[Design goals](/explanation/design-goals) says what is aimed at.
-Examples such as Ark or Lightning are not features today.
+It is also a platform for how miners get paid.
+[Design goals](/explanation/design-goals) is the payout-plugin
+work: swap the accounting and the payout method.
 
 [Two ledgers](/explanation/two-ledgers) keeps the operator-run
 pool apart from the P2Pool V2 sharechain. [Where Hydrapool is

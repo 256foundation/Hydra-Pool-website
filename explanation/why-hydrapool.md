@@ -19,9 +19,8 @@ Direct payment from the coinbase can leave the operator
 without later custody of those coins, and still say nothing
 about whether every eligible share was in the split.
 
-Hydrapool is for the operator's side of this. It is
-unfinished pool software the 256 Foundation supports. You
-can read it, and you can run it.
+Hydrapool is the 256 Foundation's pool software for that
+job. You can read it, and you can run it.
 
 Hydrapool aims to let you inspect and run the bookkeeper. P2Pool V2 aims to remove the single authoritative bookkeeper.
 

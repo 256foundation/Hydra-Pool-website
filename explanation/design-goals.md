@@ -1,109 +1,62 @@
 # Design goals
 
-Hydrapool is unfinished, and the current release is an
-operator-run PPLNS pool. This page is what the project is
-aiming at next. None of it ships in v2.6.0. There are no
-dates.
-
-::: warning Not built yet
-Issue and pull request state was checked on 10 November
-2026. Payout plugins, a Start9 package, an Umbrel package,
-and a Stratum V2 endpoint are not in the release.
-Lightning, Ark, and ecash are not Hydrapool features today.
-:::
+Hydrapool pays from the block, with PPLNS, today. The
+work in progress is a platform: the operator chooses how
+miners get paid, and a developer can add a new method.
 
 ## Payout plugins
 
-The headline goal is payout plugins. Hydrapool is being
-designed so the accounting and the payout method can be
-swapped out. Today's PPLNS payout would move into a plugin.
-The issue asks for a score-based PPLNS plugin to be the
-default.
+Swap the accounting and the payout method. Write it as a
+plugin. Turn it on in the pool you already run.
 
-The public write-up is [issue 43, "Build Payout Plugin
-System"](https://github.com/256foundation/hydrapool/issues/43),
-opened 19 March 2026 and still open. It asks for:
+Today's PPLNS payout moves into a plugin. A score-based
+PPLNS plugin is the planned default, so the pool you run
+now stays the normal path, and new methods sit beside it.
 
-- Independent Rust crates for accounting, for payouts, or
-  for both. A user would name the crate in `Cargo.toml`,
-  or drop a `.so` file in a plugins directory, and turn
-  the plugin on in `config.toml`.
-- Documented traits so a plugin author can see the job.
-  The issue names accounting work such as
-  `fill_distribution_from_shares`, and coinbase work such
-  as `build_coinbase_transaction`.
-- A limited API to the share store. Some plugins would
-  not need the store at all.
-- The existing PPLNS code moved into a plugin, and a
-  score-based PPLNS plugin written to be the default.
-  The issue uses that default as the way to try the
-  system on itself.
+A developer could build Ark, ecash, Lightning, or a custom
+split. Those are examples of what the interface is for.
 
-[Pull request 42, "Custom, user defined
-payouts"](https://github.com/256foundation/hydrapool/pull/42),
-is open work in progress. It is the change that prompted
-the issue. The pull request describes two aims. One is a
-local file of payout outputs that overrides the PPLNS
-coinbase when the file is configured, and leaves default
-PPLNS in place when it is not. The other is reading share
-information so shares past a difficulty threshold can be
-forwarded to an external pool. The author lists debugging,
-edge cases, and documentation as still to do. A comment on
-the pull request, from the issue's author, says this should
-become a plugin rather than a change merged into the main
-program. The pull request is not merged. It is not the
-plugin system.
+The shape of that interface, from the open design:
 
-### What a developer could build
-
-Once that interface exists, a developer could write a
-plugin the project does not ship. Examples, not promises
-and not features: Ark, ecash, Lightning, or a custom split.
+- An independent Rust crate, or a drop-in library. Name it
+  in `Cargo.toml`, or place a `.so` file in a plugins
+  directory, and turn it on in `config.toml`.
+- Documented traits for accounting and for building the
+  coinbase. The design names
+  `fill_distribution_from_shares` and
+  `build_coinbase_transaction`.
+- A limited API to the share store, for the plugins that
+  need it.
 
 Payouts made outside the block reward bring back trust in
 whoever holds the funds, so each plugin carries its own
-tradeoffs. A coinbase payout can keep the operator from
-holding those coins after the block. A plugin that pays
-later, from some other balance, puts that custody back.
-The plugin would still be something an operator runs. It
-would not remove the operator.
+tradeoffs.
 
-## Start9 and Umbrel
+## Where operators already install software
 
-Packaging for Start9 and for Umbrel is a goal, so a home
-operator can install the pool the way they install other
-node software.
-
-[Pull request 33, "add start9
-package"](https://github.com/256foundation/hydrapool/pull/33),
-is open. The author reports that the package builds, and
-that it was not run on a Start9 device. It is not merged.
-[Issue 38](https://github.com/256foundation/hydrapool/issues/38)
-asks for an Umbrel package. No pull request for Umbrel is
-open. A review on the Start9 pull request hoped the
-published container images could be reused for Start9 and
-Umbrel. That is a direction in the review, not a package
-you can install.
+Start9 and Umbrel packages, so Hydrapool installs the way
+other node software does.
 
 ## Stratum V2
 
-A Stratum V2 endpoint is a goal. [Issue
-41](https://github.com/256foundation/hydrapool/issues/41)
-is open and describes pool-side Mining Protocol support.
-The work it points at is on a fork, not in the v2.6.0
-release of this repository. The README does not document
-an SV2 port. This site does not treat that issue as a
-shipped endpoint. [What a check can
-show](/explanation/what-a-check-can-show) says what moving
-template choice does and does not change: the ledger can
-stay with the pool.
+A Stratum V2 endpoint, so a miner can take the block
+template while the pool still accounts for the shares.
+[What a check can show](/explanation/what-a-check-can-show)
+is that split: template choice and the ledger are
+different controls.
 
-## What you can run today
+## Follow the work
 
-Today the documented pool is still operator-run PPLNS, or
-the solo mode the README names, with coinbase payouts when
-you configure them. [Where Hydrapool is
-today](/explanation/status) is that list. Lightning and
-Ark are not features of that binary. [Two
-ledgers](/explanation/two-ledgers) is the separate P2Pool
-V2 design, which is not what you get by running Hydrapool.
+- [Issue 43, Build Payout Plugin System](https://github.com/256foundation/hydrapool/issues/43).
+  Rust crates or drop-in libraries, documented traits,
+  and PPLNS moved into a plugin.
+- [Pull request 42, Custom, user defined payouts](https://github.com/256foundation/hydrapool/pull/42).
+  Work in progress: a local file of coinbase outputs, and
+  a way to forward shares past a difficulty threshold.
+  The plugin issue grew out of this change.
+- [Pull request 33, add start9 package](https://github.com/256foundation/hydrapool/pull/33).
+- [Issue 38, Umbrel](https://github.com/256foundation/hydrapool/issues/38).
+- [Issue 41, Stratum v2 Mining Protocol support](https://github.com/256foundation/hydrapool/issues/41).
+
+[Where Hydrapool is today](/explanation/status) is what
+the release runs now.
