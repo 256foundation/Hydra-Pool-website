@@ -62,13 +62,25 @@
   --hydra-hero-tint: rgba(224, 168, 74, 0.08);
 }
 
-/* Hero name: the word itself, in the text face, sized as a wordmark.
-   The mascot is the drawn identity. No separate display font ships
-   with the project. */
+/* Wordmark: Cinzel Decorative, self-hosted from public/fonts
+   (SIL OFL, CinzelDecorative-OFL.txt). Used for the hero name and
+   the nav title. Body copy, page headings, and the footer line
+   stay in the text face: at footer size the decorative capitals
+   stop reading as the name. Tracking stays open and the hero line
+   box is tall enough that the swashes are not clipped. */
 .VPHome .VPHero .name.clip {
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-family: "Cinzel Decorative", "Palatino Linotype", Palatino, serif;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  font-synthesis: none;
+}
+
+.VPNavBarTitle .title {
+  font-family: "Cinzel Decorative", "Palatino Linotype", Palatino, serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-synthesis: none;
 }
 
 /* Hero mascot: the figure is nearly square. Give it room without the
