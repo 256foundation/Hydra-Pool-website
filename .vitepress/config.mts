@@ -6,6 +6,7 @@ import { defineConfig } from 'vitepress'
 const base = process.env.DOCS_BASE || '/'
 
 const title = 'Hydrapool'
+const cinzelHref = `${base}fonts/cinzel-decorative-latin-700-normal.woff2`
 const description = 'Open source Bitcoin mining pool software'
 
 export default defineConfig({
@@ -32,6 +33,23 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: `${base}favicon.png` }],
+    // Self-hosted Cinzel Decorative (OFL). Preload the one weight the
+    // wordmark uses. The face is not loaded from a third-party CDN.
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: cinzelHref,
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous'
+      }
+    ],
+    [
+      'style',
+      {},
+      `@font-face{font-family:"Cinzel Decorative";src:url("${cinzelHref}") format("woff2");font-weight:700;font-style:normal;font-display:swap;}`
+    ],
     // Social link previews. og:image requires an absolute URL, so it
     // points at production even in a fork preview.
     ['meta', { property: 'og:type', content: 'website' }],
