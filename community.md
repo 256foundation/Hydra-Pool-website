@@ -23,6 +23,9 @@ venues. Use the one that matches the work.
   previous website called this link the public forum.
   That label was wrong.
 - **[X][x]**: the Foundation's public account.
+- **[Design goals](/explanation/design-goals)**: work that
+  is not built yet, including payout plugins. Not a
+  feature list.
 - **[P2Pool V2][p2pool]**: the sharechain project.
   Protocol and marketplace questions belong there, and
   on its [repository][p2pool-repo]. Hydrapool's forum

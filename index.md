@@ -3,11 +3,12 @@ layout: home
 
 hero:
   name: Hydrapool
-  text: Open source Bitcoin mining pool software
+  text: A PPLNS pool you can run and check
   tagline: >-
-    Unfinished, operator-run software you can inspect and host.
-    Solo and PPLNS are the documented modes. The Foundation's
-    public instance donates hashrate. It does not pay you.
+    Open source, for a home miner or a small operator.
+    Payouts come straight from the block reward.
+    Published share records let anyone recompute the split.
+    The software is unfinished.
   image:
     src: /hydra.webp
     alt: >-
@@ -25,19 +26,26 @@ hero:
       link: https://github.com/256foundation/hydrapool
 
 features:
-  - title: Run the bookkeeper
+  - title: Run it yourself
     details: >-
-      You host the pool and you can read the code that keeps its
-      ledger. That is the job Hydrapool is for.
-    link: /explanation/two-ledgers
-    linkText: Operator pool and sharechain
-  - title: Pay from the coinbase
+      Open-source PPLNS for a home miner or a small operator.
+      You host the pool, and you can read the code.
+    link: /howto/run-with-docker
+    linkText: Run with Docker
+  - title: Paid from the block
     details: >-
-      Configured that way, miner rewards are outputs in the block
-      itself. The operator need not hold them afterward. Custody
-      is not the same as a fair split.
+      Miners are paid straight from the block reward, in the
+      coinbase. The operator need not hold those coins afterward.
+      Custody is not the same as a fair split.
     link: /explanation/what-a-check-can-show
     linkText: What a check can show
+  - title: Recompute the split
+    details: >-
+      Share records are published. Anyone can recompute the
+      split from those records. The file is not, by itself,
+      proof that every eligible share was included.
+    link: /explanation/what-a-check-can-show
+    linkText: What the export shows
   - title: A donation instance
     details: >-
       pool.256foundation.org:3333 is the Foundation's public
@@ -45,27 +53,31 @@ features:
       miners who connected.
     link: /reference/public-instances
     linkText: Instances and endpoints
-  - title: Built in the open
-    details: >-
-      AGPL-3.0 Rust, a Docker path, and Grafana dashboards.
-      Code is on GitHub. Setup talk is on the forum.
-    link: /community
-    linkText: Join in
 ---
 
-## The problem, and the software
+## The pool you can run
 
-Pooled mining usually means one operator keeps the book of who
-did the work. Hydrapool is unfinished software the [256
-Foundation](https://256foundation.org) supports for that job. It
-is open. You can inspect it. You can host it yourself.
+Hydrapool is the most practical checkable shared-payout (PPLNS)
+pool a home miner or small operator can run today. It is open
+source. You run it yourself. Miners are paid straight from the
+block reward, in the coinbase. The pool publishes share records
+so anyone can recompute the split. The software is unfinished.
+
+It is part of the [256 Foundation](https://256foundation.org)'s
+open mining stack, with [Mujina](https://mujina.org) and Ember One.
 
 Hydrapool aims to let you inspect and run the bookkeeper. P2Pool V2 aims to remove the single authoritative bookkeeper.
 
-Those are two different designs. [Two ledgers](/explanation/two-ledgers)
-keeps them apart. [Where Hydrapool is today](/explanation/status)
-says what the current software does and what is still someone
-else's project.
+It is also becoming a platform for how miners get paid. The
+design work is payout plugins, so the accounting and the payout
+method can be swapped. That is not built yet.
+[Design goals](/explanation/design-goals) says what is aimed at.
+Examples such as Ark or Lightning are not features today.
+
+[Two ledgers](/explanation/two-ledgers) keeps the operator-run
+pool apart from the P2Pool V2 sharechain. [Where Hydrapool is
+today](/explanation/status) is the list of what the current
+release actually runs.
 
 ::: warning The public instance does not pay miners
 `stratum+tcp://pool.256foundation.org:3333` is a hashrate

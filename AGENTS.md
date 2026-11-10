@@ -70,17 +70,24 @@ re-check.
 - Direct coinbase payment can avoid later custody. It
   does not prove the split was fair.
 - `/pplns_shares` is the operator's export of rows they
-  still store. A miner can check arithmetic and look
-  for their own work. Do not write that they can
-  recompute or prove the whole payout from that export.
-  Do not write "independently verify all share
-  accounting."
+  still store. The home page may say that published
+  share records let anyone recompute the split from
+  those rows. Do not write that the export proves the
+  whole payout, completeness, or non-equivocation. Do
+  not write "independently verify all share accounting."
 - Template choice, accounting, and settlement are
-  different controls. Stratum V2 and DATUM are not
-  Hydrapool features on this site.
+  different controls. Stratum V2 is a design goal, not
+  a current endpoint. DATUM is not a Hydrapool feature.
 - Lightning and Ark are not shipped Hydrapool products.
-  They belong, if at all, to P2Pool V2's unfinished
-  market, described on p2poolv2.org.
+  They may be named only as examples of payout plugins
+  that are not built, or as P2Pool V2's unfinished
+  market. Say both limits when the design-goals page
+  mentions them.
+- Design goals (`explanation/design-goals.md`) are not
+  features and have no dates. Payout plugins follow
+  issue 43 and open pull request 42. Start9 packaging
+  is open pull request 33. Do not invent an Umbrel
+  pull request. No em dashes in site copy.
 - P2Pool V2 is independently maintained by Jungly
   (Kulpreet Singh), with a public support commitment
   from Localhost Research. It is not a 256 Foundation

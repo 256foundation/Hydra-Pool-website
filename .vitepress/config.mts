@@ -54,6 +54,7 @@ export default defineConfig({
       { text: 'How-to', link: '/howto/run-with-docker' },
       { text: 'Reference', link: '/reference/public-instances' },
       { text: 'Explanation', link: '/explanation/why-hydrapool' },
+      { text: 'Design goals', link: '/explanation/design-goals' },
       { text: 'Community', link: '/community' }
     ],
 
@@ -88,7 +89,8 @@ export default defineConfig({
           { text: 'Why Hydrapool', link: '/explanation/why-hydrapool' },
           { text: 'Two Ledgers', link: '/explanation/two-ledgers' },
           { text: 'What a Check Can Show', link: '/explanation/what-a-check-can-show' },
-          { text: 'Where Hydrapool Is Today', link: '/explanation/status' }
+          { text: 'Where Hydrapool Is Today', link: '/explanation/status' },
+          { text: 'Design Goals', link: '/explanation/design-goals' }
         ]
       },
       {

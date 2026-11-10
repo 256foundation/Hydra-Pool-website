@@ -42,6 +42,9 @@ mention Lightning and Ark. None of that is a Hydrapool
 product. This site does not offer Lightning or Ark
 payouts.
 
+A sharechain still has people running gateways and nodes.
+It does not mean there is no operator at all.
+
 P2Pool V2 is maintained independently by Jungly (Kulpreet
 Singh). [Localhost Research](https://lclhost.org/blog/mining-unit/)
 has published a commitment to support that work, alongside

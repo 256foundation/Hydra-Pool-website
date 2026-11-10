@@ -52,23 +52,36 @@ ledgers](/explanation/two-ledgers) keeps the distinction.
 
 ## What is not this product today
 
+[Design goals](/explanation/design-goals) is the list of
+work that is not built. No dates. The current release
+does not include:
+
+- Payout plugins. PPLNS in v2.6.0 is built in, not a
+  plugin you swap out.
+- Lightning, Ark, ecash, or a custom split as a payout
+  method. Lightning and Ark are not Hydrapool features
+  today. On the design-goals page they are only examples
+  of plugins a developer could write.
+- A Start9 package or an Umbrel package.
+- A Stratum V2 endpoint. [Issue
+  41](https://github.com/256foundation/hydrapool/issues/41)
+  is open. The v2.6.0 release does not document one.
+
+Also not this product:
+
 - A peer-validated sharechain. That is P2Pool V2's
   design. Its site says testnet4, and that the market
-  is still being built.
-- Lightning or Ark payouts. They appear in P2Pool V2's
-  description of the market it is building. They are
-  not Hydrapool features in the current README or
-  release.
+  is still being built. [Two
+  ledgers](/explanation/two-ledgers) keeps that apart
+  from running Hydrapool.
 - Proof that a remote host runs this source, or that an
   export is the complete set of eligible work. [What a
   check can show](/explanation/what-a-check-can-show)
   says what the real checks are.
-- A Stratum V2 listening port. The current docs do not
-  describe one.
-- Inter-instance pooling, further payout schemes, and
-  encrypted transport. The v2.6.0 README does not
-  describe them as current behavior. This page does
-  not assign them a date.
+- Inter-instance pooling and encrypted transport. The
+  v2.6.0 README does not describe them as current
+  behavior, and they are not goals on the design-goals
+  page.
 
 ## The public instance is a test, not a network
 

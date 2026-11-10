@@ -4,6 +4,24 @@ Four checks come up whenever someone asks whether they have
 to trust a pool. Each one shows a different fact. None of
 them stands in for the others.
 
+They also sit on four levels of assurance. A higher level
+is not granted by a lower one.
+
+1. **Inspection.** Read the published source. That is the
+   next section.
+2. **Recomputation.** From the records the pool publishes,
+   check the arithmetic and recompute the split those rows
+   describe. That is the export section. It is not proof
+   the rows are the complete set.
+3. **Completeness and non-equivocation.** Nothing eligible
+   was omitted or invented, and a different caller was not
+   shown a different history. The export does not show this.
+4. **Enforcement.** The amounts were committed on Bitcoin,
+   and a later holder of the funds cannot withhold them.
+   Coinbase outputs are that section. Paying from the
+   coinbase avoids later custody. It does not prove the
+   inputs to the split were complete.
+
 ## You can read the source
 
 Hydrapool is published under AGPL-3.0 at
