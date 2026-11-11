@@ -3,7 +3,7 @@
 The source for [hydrapool.org](https://hydrapool.org), the
 website of Hydrapool, the 256 Foundation's open source
 Bitcoin mining pool software. The site is built with
-[VitePress](https://vitepress.dev). The pool itself lives
+[VitePress](https://vitepress.dev). The code for the pool itself lives
 at <https://github.com/256foundation/hydrapool>.
 
 This tree is a draft. `main` still serves the previous
